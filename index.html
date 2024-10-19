@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="public/tailwind.css">
+    <link rel="stylesheet" href="src/styles/index.css">
+    <script src="src/utils/index.js"></script>
+</head>
+<body class="fontMontserrat h-screen bg-white flex flex-col">
+    <header>
+        <nav class="bg-white border-b-2 flex items-center justify-between px-[100px] h-[50px]">
+            <div class="flex items-center">
+                <img src="src/assets/hacktiv8.jpg" alt="Hacktiv8 Logo" class="h-[30px] mr-4">
+            </div>
+            <ul class="flex gap-6">
+                <li><a href="#" class="text-black font-semibold hover:text-red-900">Home</a></li>
+                <li><a href="#" class="text-black font-semibold hover:text-red-900">About Me</a></li>
+                <li><a href="#" class="text-black font-semibold hover:text-red-900">Projects</a></li>
+                <li><a href="#" class="text-black font-semibold hover:text-red-900">Skills</a></li>
+                <li><a href="#" class="text-black font-semibold hover:text-red-900">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-grow px-[150px] pt-8">
+        <div class="flex gap-24 p-8 bg-white rounded-md shadow-lg">
+            <!-- Profile -->
+            <div class="flex items-center">
+                <img src="src/assets/azmi.jpg" alt="Profile"
+                    class="aspect-square h-[150px] rounded-full object-cover mr-8">
+                <div>
+                    <h2 id="display-nama" class="text-3xl font-bold">Azmi Azizah</h2>
+                    <h3 id="display-role" class="font-medium text-gray-500 mt-1 text-[14px]">Front End Designer</h3>
+                    <div class="mt-6">
+                        <button
+                            class="text-[12px] px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold mr-2 hover:bg-blue-900" onClick="editButton()">Edit</button>
+                        <button
+                            class="text-[12px] px-6 py-2 text-green-500 font-semibold border border-green-500 hover:bg-green-500 hover:text-white rounded-lg">Resume</button>
+                    </div>                    
+                </div>
+            </div>
+           <!-- Biodata -->
+           <div class="my-auto border-l pl-8">
+            <table>
+                <tr>
+                    <td class="pr-10 font-semibold">Availability</td>
+                    <td id="display-availability" class="font-medium text-gray-400">Full Time</td>
+                </tr>
+                <tr>
+                    <td class="pr-10 font-semibold">Usia</td>
+                    <td id="display-usia" class="font-medium text-gray-400">21</td>
+                </tr>
+                <tr>
+                    <td class="pr-10 font-semibold">Lokasi</td>
+                    <td id="display-lokasi" class="font-medium text-gray-400">Bandung</td>
+                </tr>
+                <tr>
+                    <td class="pr-10 font-semibold">Pengalaman</td>
+                    <td id="display-experience" class="font-medium text-gray-400">1</td>
+                </tr>
+                <tr>
+                    <td class="pr-10 font-semibold">Email</td>
+                    <td id="display-email" class="font-medium text-gray-400">azmiazizah@gmail.com</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+        <!-- Edit Form -->
+         <form id="form" class="hidden w-full mt-8 p-8 bg-gray-100 rounded-lg shadow-xl" onSubmit="updateBiodata(event)">
+            <h2 class="text-2xl font-bold text-gray-700 mb-6">Edit Biodata</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="flex flex-col">
+                    <label for="nama" class="mb-2 text-sm font-medium text-gray-600">Nama</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama Anda" class="px-4 py-2 border border-gray-300 rounded-lg ">
+                </div>
+                <div class="flex flex-col">
+                    <label for="role" class="mb-2 text-sm font-medium text-gray-600">Role</label>
+                    <input type="text" id="role" placeholder="Masukkan role" class="px-4 py-2 border border-gray-300 rounded-lg ">
+                </div>
+                <div class="flex flex-col">
+                    <label for="availability" class="mb-2 text-sm font-medium text-gray-600">Availability</label>
+                    <input type="text" id="availability" placeholder="Status ketersediaan" class="px-4 py-2 border border-gray-300 rounded-lg ">
+                </div>
+                <div class="flex flex-col">
+                    <label for="usia" class="mb-2 text-sm font-medium text-gray-600">Usia</label>
+                    <input type="text" id="usia" placeholder="Masukkan usia" class="px-4 py-2 border border-gray-300 rounded-lg ">
+                </div>
+                <div class="flex flex-col">
+                    <label for="lokasi" class="mb-2 text-sm font-medium text-gray-600">Lokasi</label>
+                    <input type="text" id="lokasi" placeholder="Lokasi saat ini" class="px-4 py-2 border border-gray-300 rounded-lg ">
+                </div>
+                <div class="flex flex-col">
+                    <label for="experience" class="mb-2 text-sm font-medium text-gray-600">Pengalaman</label>
+                    <input type="number" id="experience" placeholder="year experience" class="px-4 py-2 border border-gray-300 rounded-lg ">
+                </div>
+                <div class="flex flex-col">
+                    <label for="email" class="mb-2 text-sm font-medium text-gray-600">Email</label>
+                    <input type="email" id="email" placeholder="Alamat email" class="px-4 py-2 border border-gray-300 rounded-lg ">
+                </div>
+            </div>
+            <div class="mt-6">
+                <input type="submit" class="w-full py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 cursor-pointer" value="SUBMIT">
+            </div>
+        </form>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white py-4 mt-5">
+        <div>
+        </div>
+    </footer>
+</body>
+</html>
